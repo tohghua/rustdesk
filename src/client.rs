@@ -2245,6 +2245,14 @@ impl LoginConfigHandler {
             }
         }
         let view_only = self.get_toggle_option("view-only");
+        log::info!(
+            "[get_option_message] id={}, view_only={}, lock_after_session_end config={}, conn_type={:?}",
+            self.id,
+            view_only,
+            self.get_toggle_option("lock-after-session-end"),
+            self.conn_type
+        );
+        
         if view_only {
             msg.disable_keyboard = BoolOption::Yes.into();
         }
