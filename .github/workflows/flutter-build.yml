@@ -9,6 +9,16 @@ on:
       upload-tag:
         type: string
         default: "nightly"
+  workflow_dispatch:
+    inputs:
+      upload-artifact:
+        type: boolean
+        default: true
+        description: 'Upload artifacts'
+      upload-tag:
+        type: string
+        default: "nightly"
+        description: 'Upload tag'        
 
 env:
   SCITER_RUST_VERSION: "1.75"
