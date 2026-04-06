@@ -4212,6 +4212,8 @@ impl Connection {
     }
 
     async fn on_close(&mut self, reason: &str, lock: bool) {
+        log::info!("Lock condition check - lock: {}, lock_after_session_end: {}, keyboard: {}",
+            lock, self.lock_after_session_end, self.keyboard);
         if self.closed {
             return;
         }
